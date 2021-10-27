@@ -22,9 +22,12 @@ boolean wkey, akey, skey, dkey;
 ArrayList<GameObject> object;
 Hero hero;
 AnimatedGIF gif;
+PImage map;
+color nroom, eroom, sroom, wroom;
 void setup(){
   size(800,800, FX2D);
   gif = new AnimatedGIF(120,"frame_", "_delay-0.07s.png",0,0,width, height);
+  map=loadImage("map.png");
   mode=intro;
   bkg = white;
   yellowButton  = new Button("Start",  400, 650, 600, 200, yellow,  white);

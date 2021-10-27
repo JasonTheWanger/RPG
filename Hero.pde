@@ -3,9 +3,7 @@ class Hero extends GameObject{
   int roomx, roomy;
   
   Hero(){
-   loc=new PVector (width/2, height/2);
-   vel=new PVector (0,0);
-   hp=1;
+   super();
    speed=5;
    roomx=1;
    roomy=1;
