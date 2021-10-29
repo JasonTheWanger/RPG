@@ -20,6 +20,7 @@ color white  = #FFFFFF;
 color brown  = #795040;
 boolean wkey, akey, skey, dkey;
 ArrayList<GameObject> object;
+ArrayList<DarknessCell> darkness;
 Hero hero;
 AnimatedGIF gif;
 PImage map;
@@ -34,6 +35,9 @@ void setup(){
   hero=new Hero();
   object = new ArrayList<GameObject>();
   object.add(hero);
+  darkness = new ArrayList<DarknessCell>(1000);
+  float size =100;
+  darkness.add(new DarknessCell(100,100,size));
 }
 
 void draw(){

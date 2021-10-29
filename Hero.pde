@@ -20,25 +20,41 @@ class Hero extends GameObject{
   void act(){
     super.act();
     if(wkey){
-     vel.add(0,-1); 
+     vel.y=-speed; 
     }
     else if(skey){
-     vel.sub(0,-1); 
+     vel.y=speed; 
     }
     else{
      vel.y=0; 
     }
     if(akey){
-     vel.add(-1,0); 
+     vel.x=-speed; 
     }
     else if(dkey){
-     vel.sub(-1,0); 
+     vel.x=speed; 
     }
     else{
      vel.x=0; 
     }
-    if(vel.mag()>=6.5){
-    vel.setMag(6.5);
+    if(vel.mag()>=speed){
+    vel.setMag(speed);
+    }
+    if(nroom!=#FFFFFF&& loc.y<=height*0.1&&loc.x>=width/2-50&&loc.x<=width/2+50){
+     roomy-=1;
+     loc=new PVector(width/2, height*0.9-10);
+    }
+    if(eroom != #FFFFFF && loc.x >=width*0.9 && loc.y>=height/2-50 && loc.y<=height/2 +50){
+     roomx+=1; 
+     loc = new PVector(width*0.1+10,height/2);
+    }
+    if(sroom!=#FFFFFF&& loc.y>=height*0.9&&loc.x>=width/2-50&&loc.x<=width/2+50){
+     roomy+=1;
+     loc=new PVector(width/2, height*0.1+10);
+    }
+    if(wroom!=#FFFFFF&& loc.x<=width*0.1&&loc.y>=height/2-50&&loc.y<=height/2+50){
+     roomx-=1;
+     loc=new PVector(width*0.9, height/2);
     }
     if(loc.x>=width-50-size/2){
      loc.x=width-50-size/2; 
