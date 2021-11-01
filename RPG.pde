@@ -36,8 +36,18 @@ void setup(){
   object = new ArrayList<GameObject>();
   object.add(hero);
   darkness = new ArrayList<DarknessCell>(1000);
-  float size =100;
-  darkness.add(new DarknessCell(100,100,size));
+  float size =4;
+  rectMode(CENTER);
+  float x=0, y=0;
+  while(x<=width&& y<=height){
+   darkness.add(new DarknessCell(x,y,size)); 
+   x=x+size;
+   
+   if(x==width){
+    y=y+size;
+    x=0;
+   }
+  }
 }
 
 void draw(){

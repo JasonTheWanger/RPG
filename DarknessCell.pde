@@ -9,9 +9,11 @@ class DarknessCell{
   }
   
   void show(){
-   float d=dist(hero.loc.x, hero.loc.y, width/2, height/2);
-   opacity = map(d, 0, 100, 0, 255);
+   float d=dist(hero.loc.x, hero.loc.y, x,y);
+   opacity = map(d, 0, 800, 0, 255);
    fill(0,opacity);
+   rectMode(CENTER);
+   noStroke();
    square(x,y,size);
   }
 }

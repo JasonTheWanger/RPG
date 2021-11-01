@@ -44,4 +44,7 @@ void drawGameObject(){
      i--;
     }
   }
+  for(int i =0; i<darkness.size(); i++){
+   darkness.get(i).show(); 
+  }
 }
