@@ -42,7 +42,6 @@ void setup(){
   while(x<=width&& y<=height){
    darkness.add(new DarknessCell(x,y,size)); 
    x=x+size;
-   
    if(x==width){
     y=y+size;
     x=0;
