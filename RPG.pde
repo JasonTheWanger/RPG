@@ -18,7 +18,7 @@ color yellow = #BC8B28;
 color black  = #000000;
 color white  = #FFFFFF;
 color brown  = #795040;
-boolean wkey, akey, skey, dkey;
+boolean wkey, akey, skey, dkey, spacekey;
 ArrayList<GameObject> object;
 ArrayList<DarknessCell> darkness;
 Hero hero;
@@ -74,6 +74,9 @@ void keyPressed(){
   if(keyCode=='D'||keyCode=='d'){
    dkey=true; 
   }
+  if(keyCode==' '){
+   spacekey=true; 
+  }
 }
 
 void keyReleased(){
@@ -88,5 +91,8 @@ void keyReleased(){
   }
   if(keyCode=='D'||keyCode=='d'){
    dkey=false; 
+  }
+  if(keyCode==' '){
+   spacekey=false; 
   }
 }

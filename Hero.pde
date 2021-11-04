@@ -1,13 +1,14 @@
 class Hero extends GameObject{
   float speed;
   int roomx, roomy;
-  
+  Weapon weapon;
   Hero(){
    super();
    speed=5;
    roomx=1;
    roomy=1;
    size=40;
+   weapon=new Weapon();
   }
   
   void show(){
@@ -67,6 +68,10 @@ class Hero extends GameObject{
     }
     if(loc.y<=size/2+50){
      loc.y=size/2+50; 
+    }
+    weapon.update();
+    if(spacekey){
+     weapon.shoot(); 
     }
   }
 }
