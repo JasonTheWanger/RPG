@@ -1,6 +1,5 @@
 class Hero extends GameObject{
   float speed;
-  int roomx, roomy;
   Weapon weapon;
   Hero(){
    super();
@@ -8,7 +7,7 @@ class Hero extends GameObject{
    roomx=1;
    roomy=1;
    size=40;
-   weapon=new Weapon();
+   weapon=new sawed_off();
   }
   
   void show(){

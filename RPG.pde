@@ -35,6 +35,9 @@ void setup(){
   hero=new Hero();
   object = new ArrayList<GameObject>();
   object.add(hero);
+  object.add(new Enemy());
+  object.add(new Follower(1,2));
+  object.add(new Follower(2,1));
   darkness = new ArrayList<DarknessCell>(1000);
   float size =4;
   rectMode(CENTER);

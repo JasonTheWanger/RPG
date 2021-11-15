@@ -6,6 +6,8 @@ class Bullet extends GameObject{
    vel=bs;
    size=s;
    fill=c;
+   roomx=hero.roomx;
+   roomy=hero.roomy;
  }
  void show(){
    fill(fill);

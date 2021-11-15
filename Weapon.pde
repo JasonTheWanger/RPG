@@ -1,11 +1,12 @@
 class Weapon{
-  int timer, threshold, bulletSpeed;
+  int timer, threshold;
+  float bulletSpeed;
  Weapon(){
    timer=0;
    threshold=30;
    bulletSpeed=5;
  }
- Weapon(int thr, int bs){
+ Weapon(int thr, float bs){
   timer=0;
   threshold=thr;
   bulletSpeed=bs;
