@@ -18,7 +18,7 @@ color yellow = #BC8B28;
 color black  = #000000;
 color white  = #FFFFFF;
 color brown  = #795040;
-boolean wkey, akey, skey, dkey, spacekey;
+boolean wkey, akey, skey, dkey, spacekey, gun1, gun2, gun3, gun4, gun5, gun6, switched;
 ArrayList<GameObject> object;
 ArrayList<DarknessCell> darkness;
 Hero hero;
@@ -80,6 +80,60 @@ void keyPressed(){
   if(keyCode==' '){
    spacekey=true; 
   }
+  if(keyCode=='1'){
+   gun1=true; 
+   gun2=false;
+   gun3=false; 
+   gun4=false;
+   gun5=false;
+   gun6=false;
+   switched=true;
+  }
+  if(keyCode=='2'){
+   gun2=true; 
+   gun1=false;
+   gun3=false; 
+   gun4=false;
+   gun5=false;
+   gun6=false;
+   switched=true;
+  }
+   if(keyCode=='3'){
+   gun3=true; 
+   gun2=false;
+   gun1=false; 
+   gun4=false;
+   gun5=false;
+   gun6=false;
+   switched=true;
+  }
+   if(keyCode=='4'){
+   gun4=true; 
+   gun2=false;
+   gun3=false; 
+   gun1=false;
+   gun5=false;
+   gun6=false;
+   switched=true;
+  }
+   if(keyCode=='5'){
+   gun5=true; 
+   gun2=false;
+   gun3=false; 
+   gun4=false;
+   gun1=false;
+   gun6=false;
+   switched=true;
+  }
+  if(keyCode=='6'){
+   gun5=false; 
+   gun2=false;
+   gun3=false; 
+   gun4=false;
+   gun1=false;
+   gun6=true;
+   switched=true;
+  }
 }
 
 void keyReleased(){
@@ -98,4 +152,6 @@ void keyReleased(){
   if(keyCode==' '){
    spacekey=false; 
   }
+  if(keyCode=='1'||keyCode=='2'||keyCode=='3'||keyCode=='4'||keyCode=='5'||keyCode=='6')
+  switched=false;
 }

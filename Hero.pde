@@ -7,7 +7,7 @@ class Hero extends GameObject{
    roomx=1;
    roomy=1;
    size=40;
-   weapon=new sawed_off();
+   weapon=new glock_18();
   }
   
   void show(){
@@ -67,6 +67,29 @@ class Hero extends GameObject{
     }
     if(loc.y<=size/2+50){
      loc.y=size/2+50; 
+    }
+    if(gun1&&switched){
+     weapon=new glock_18(); 
+     hero.speed=5;
+    }
+    else if(gun2&&switched){
+      
+    }
+    else if(gun3&&switched){
+      weapon=new m1_garand();
+      hero.speed=4;
+    }
+    else if(gun4&&switched){
+      weapon=new sawed_off();
+      hero.speed=3;
+    }
+    else if(gun5&&switched){
+     weapon=new awp();
+     hero.speed=2.5;
+    }
+    else if(gun6&&switched){
+     weapon=new m249(); 
+     hero.speed=2; 
     }
     weapon.update();
     if(spacekey){
