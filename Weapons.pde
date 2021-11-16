@@ -8,7 +8,7 @@ class awp extends Weapon {
 class glock_18 extends Weapon {
 
   glock_18() {
-    super(30, 5.5);
+    super(30, 10);
   }
   void shoot() {
     if (timer>=threshold) {

@@ -37,8 +37,14 @@ class Enemy extends GameObject {
       if (GB instanceof Bullet) {
         float d = dist(GB.loc.x, GB.loc.y, loc.x, loc.y);
         if (d<=size/2 +GB.size/2) {
-          if(gun2)
+          if(gun1)
+          hp-=int(GB.vel.mag()*0.55);
+          else if(gun2)
           hp-=int(GB.vel.mag())*2/6;
+          else if(gun3)
+          hp-=int(GB.vel.mag())*6/5;
+          else if(gun4)
+          hp-=int(GB.vel.mag())*17/15;
           else if(gun5)
           hp-=int(GB.vel.mag())*6.25;
           else if(gun6)

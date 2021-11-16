@@ -33,6 +33,7 @@ void setup(){
   bkg = white;
   yellowButton  = new Button("Start",  400, 650, 600, 200, yellow,  white);
   hero=new Hero();
+  gun1=true;
   object = new ArrayList<GameObject>();
   object.add(hero);
   object.add(new Enemy());

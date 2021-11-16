@@ -20,15 +20,15 @@ class spawnPool extends Enemy {
     timer++;
     super.act();
     if (timer==threshold)
-      object.add(new Follower(33, 35, roomx, roomy));
+      object.add(new Follower(32, 35, roomx, roomy));
     if (timer==threshold+50)
-      object.add(new Follower(33, 35, roomx, roomy));
+      object.add(new Follower(32, 35, roomx, roomy));
     if (timer==threshold+100)
-      object.add(new Follower(33, 35, roomx, roomy));
+      object.add(new Follower(32, 35, roomx, roomy));
     if (timer==threshold+150)
-      object.add(new Follower(33, 35, roomx, roomy));
+      object.add(new Follower(32, 35, roomx, roomy));
     if (timer==threshold+200){
-      object.add(new Follower(33, 35, roomx, roomy));
+      object.add(new Follower(32, 35, roomx, roomy));
     timer=0;
     }
   }
