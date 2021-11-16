@@ -38,6 +38,8 @@ void setup(){
   object.add(new Enemy());
   object.add(new Follower(1,2));
   object.add(new Follower(2,1));
+  object.add(new Turret(3,1));
+  object.add(new spawnPool(1,3));
   darkness = new ArrayList<DarknessCell>(1000);
   float size =4;
   rectMode(CENTER);

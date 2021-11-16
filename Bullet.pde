@@ -17,8 +17,10 @@ class Bullet extends GameObject{
  void act(){
    super.act();
    if(loc.x>=width-50||loc.x<=50||loc.y>=height-50||loc.y<=50){
-     hp--; 
-    //bparticle
+     for (int i=0; i<30; i++){
+       object.add(new BulletParticles(loc, black)); 
+      }
+      hp--;
    }
 
  }

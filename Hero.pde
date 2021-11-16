@@ -3,7 +3,7 @@ class Hero extends GameObject{
   Weapon weapon;
   Hero(){
    super();
-   speed=5;
+   speed=5.5;
    roomx=1;
    roomy=1;
    size=40;
@@ -70,14 +70,15 @@ class Hero extends GameObject{
     }
     if(gun1&&switched){
      weapon=new glock_18(); 
-     hero.speed=5;
+     hero.speed=5.5;
     }
     else if(gun2&&switched){
-      
+      weapon=new mp5();
+      hero.speed=4.5;
     }
     else if(gun3&&switched){
       weapon=new m1_garand();
-      hero.speed=4;
+      hero.speed=3.75;
     }
     else if(gun4&&switched){
       weapon=new sawed_off();
@@ -89,7 +90,7 @@ class Hero extends GameObject{
     }
     else if(gun6&&switched){
      weapon=new m249(); 
-     hero.speed=2; 
+     hero.speed=1.75; 
     }
     weapon.update();
     if(spacekey){

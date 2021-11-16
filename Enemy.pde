@@ -1,9 +1,10 @@
 class Enemy extends GameObject {
-
+  int threshold, timer;
+ int bulletSpeed;
   Enemy () {
     loc =new PVector(width/2, height/2);
     vel = new PVector(0, 0);
-    hp=100;
+    hp=500;
     roomx=1;
     roomy=1;
     size=50;
@@ -36,14 +37,15 @@ class Enemy extends GameObject {
       if (GB instanceof Bullet) {
         float d = dist(GB.loc.x, GB.loc.y, loc.x, loc.y);
         if (d<=size/2 +GB.size/2) {
-          if(gun5)
-          hp-=int(GB.vel.mag())*2.55;
+          if(gun2)
+          hp-=int(GB.vel.mag())*2/6;
+          else if(gun5)
+          hp-=int(GB.vel.mag())*6.25;
           else if(gun6)
-          hp-=int(GB.vel.mag())*0.25;
-          else{
+          hp-=int(GB.vel.mag())*15/20;
+          else
           hp-=int(GB.vel.mag());
           GB.hp--;
-          }
         }
       }
     }
