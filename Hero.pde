@@ -8,17 +8,27 @@ class Hero extends GameObject{
    roomy=1;
    size=40;
    weapon=new glock_18();
+   hp=5;
+   immuned=100;
+   loc.x=250;
+   loc.y=250;
   }
   
   void show(){
    noFill();
-   stroke(0);
+   if(immuned<=0){
+    stroke(0);
+   }
+   else
+    stroke(0,255,0);
    strokeWeight(2);
    circle(loc.x, loc.y, size);
+   
   }
   
   void act(){
     super.act();
+    immuned--;
     if(wkey){
      vel.y=-speed; 
     }
@@ -70,7 +80,7 @@ class Hero extends GameObject{
     }
     if(gun1&&switched){
      weapon=new glock_18(); 
-     hero.speed=5.5;
+     hero.speed=7;
     }
     else if(gun2&&switched){
       weapon=new mp5();

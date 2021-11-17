@@ -10,8 +10,8 @@ class EnemyBullet extends GameObject {
     }
 
     vel=bs;
-    vel.x+=hero.vel.x;
-    vel.y+=hero.vel.y;
+    vel.x+=hero.vel.x*1.25;
+    vel.y+=hero.vel.y*1.25;
     vel.setMag(7.5);
     size=s;
     fill=c;
@@ -27,9 +27,18 @@ class EnemyBullet extends GameObject {
     super.act();
     if (loc.x>=width-50||loc.x<=50||loc.y>=height-50||loc.y<=50) {
       hp--;
-      for (int i=0; i<15; i++){
-       object.add(new BulletParticles(loc, white)); 
+      for (int i=0; i<15; i++) {
+        object.add(new BulletParticles(loc, white));
       }
     }
+    if (withHero(this)&&hero.immuned<=0)
+      if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {
+        hero.hp--;
+        hero.immuned=100;
+        hp--;
+        for (int i=0; i<15; i++) {
+          object.add(new BulletParticles(loc, white));
+        }
+      }
   }
 }

@@ -2,7 +2,7 @@ class Turret extends Enemy{
  
   Turret(int x, int y){
     super(500,50,x,y);
-    threshold=80;
+    threshold=120;
     timer=0;
     bulletSpeed=10;
   }

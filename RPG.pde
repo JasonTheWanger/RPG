@@ -14,11 +14,12 @@ color bkg;
 color blue   = #28E7ED;
 color green  = #CEF255;
 color pink   = #F76DDC;
-color yellow = #BC8B28;
+color darkYellow = #BC8B28;
+color yellow = #F7E516;
 color black  = #000000;
 color white  = #FFFFFF;
 color brown  = #795040;
-boolean wkey, akey, skey, dkey, spacekey, gun1, gun2, gun3, gun4, gun5, gun6, switched;
+boolean wkey, akey, skey, dkey, spacekey, gun1, gun2, gun3, gun4, gun5, gun6, switched, immuned;
 ArrayList<GameObject> object;
 ArrayList<DarknessCell> darkness;
 Hero hero;
@@ -28,19 +29,30 @@ color nroom, eroom, sroom, wroom;
 void setup(){
   size(800,800, FX2D);
   gif = new AnimatedGIF(120,"frame_", "_delay-0.07s.png",0,0,width, height);
-  map=loadImage("map.png");
+  map=loadImage("map1.png");
   mode=intro;
   bkg = white;
-  yellowButton  = new Button("Start",  400, 650, 600, 200, yellow,  white);
+  yellowButton  = new Button("Start",  400, 650, 600, 200, darkYellow,  white);
   hero=new Hero();
   gun1=true;
   object = new ArrayList<GameObject>();
   object.add(hero);
-  object.add(new Enemy());
-  object.add(new Follower(1,2));
-  object.add(new Follower(2,1));
-  object.add(new Turret(3,1));
-  object.add(new spawnPool(1,3));
+  int roomX=0, roomY=0;
+  while(roomX<10&& roomY<10){
+   if(map.get(roomX,roomY)==green)
+    object.add(new Enemy(1000,75,roomX,roomY));
+   if(map.get(roomX,roomY)==blue)
+   object.add(new Follower(roomX,roomY));
+   if(map.get(roomX,roomY)==yellow)
+   object.add(new Turret(roomX,roomY));
+   if(map.get(roomX,roomY)==brown)
+     object.add(new spawnPool(roomX,roomY));
+     roomX++;
+   if(roomX==9){
+    roomY++;
+    roomX=0;
+   }
+  }
   darkness = new ArrayList<DarknessCell>(1000);
   float size =4;
   rectMode(CENTER);
@@ -157,4 +169,11 @@ void keyReleased(){
   }
   if(keyCode=='1'||keyCode=='2'||keyCode=='3'||keyCode=='4'||keyCode=='5'||keyCode=='6')
   switched=false;
+}
+boolean withHero(GameObject GB){
+    if (GB.roomx==hero.roomx&&GB.roomy==hero.roomy) {
+     return true;
+    }
+    else
+    return false;
 }
