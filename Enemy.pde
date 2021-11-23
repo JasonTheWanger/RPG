@@ -55,10 +55,20 @@ class Enemy extends GameObject {
         }
       }
     }
-    if (withHero(this)&&hero.immuned<=0)
-      if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {
+    if (collidingWith(this)&&hero.immuned<=0){
+
         hero.hp--;
-        hero.immuned=100;
-      }
+        hero.immuned=150;
+    }
+    if(hp<=0){
+     for (int i=0; i<30; i++){
+       object.add(new BulletParticles(loc, black)); 
+      } 
+    }
+    //if (withHero(this)&&hero.immuned<=0)
+    //  if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {
+    //    hero.hp--;
+    //    hero.immuned=100;
+    //  }
   }
 }

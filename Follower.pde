@@ -17,7 +17,7 @@ class Follower extends Enemy {
   }
   void act() {
     super.act();
-    if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=350) {
+    if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=300) {
       vel = new PVector(hero.loc.x-loc.x, hero.loc.y-loc.y);
       vel.setMag(random(2, 4));
     } else

@@ -177,3 +177,11 @@ boolean withHero(GameObject GB){
     else
     return false;
 }
+
+boolean collidingWith(GameObject GB){
+ if(withHero(GB)&&dist(GB.loc.x, GB.loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+GB.size/2){
+  return true; 
+ }
+ else
+ return false;
+}
