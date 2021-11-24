@@ -64,6 +64,7 @@ class Enemy extends GameObject {
      for (int i=0; i<30; i++){
        object.add(new BulletParticles(loc, black)); 
       } 
+      object.add(new DroppedItem(loc.x, loc.y, roomx, roomy,GUN));
     }
     //if (withHero(this)&&hero.immuned<=0)
     //  if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {

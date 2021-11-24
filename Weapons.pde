@@ -57,7 +57,7 @@ class m249 extends Weapon{
 
 class m1_garand extends Weapon{
  m1_garand(){
-  super(45, 25.1); 
+  super(40, 25.1); 
  }
  void shoot() {
     if (timer>=threshold) {
