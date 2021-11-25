@@ -38,7 +38,7 @@ class Enemy extends GameObject {
         float d = dist(GB.loc.x, GB.loc.y, loc.x, loc.y);
         if (d<=size/2 +GB.size/2) {
           if (gun1)
-            hp-=int(GB.vel.mag()*0.55);
+            hp-=int(GB.vel.mag()*0.44);
           else if (gun2)
             hp-=int(GB.vel.mag())*2/6;
           else if (gun3)
@@ -57,19 +57,15 @@ class Enemy extends GameObject {
     }
     if (collidingWith(this)&&hero.immuned<=0){
 
-        hero.hp--;
+        hero.hp-=18;
         hero.immuned=150;
     }
     if(hp<=0){
      for (int i=0; i<30; i++){
        object.add(new BulletParticles(loc, black)); 
       } 
-      object.add(new DroppedItem(loc.x, loc.y, roomx, roomy,GUN));
+      if(size>=50)
+      object.add(new DroppedItem(loc.x, loc.y, roomx, roomy, int(random(1,3))));
     }
-    //if (withHero(this)&&hero.immuned<=0)
-    //  if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {
-    //    hero.hp--;
-    //    hero.immuned=100;
-    //  }
   }
 }

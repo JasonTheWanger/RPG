@@ -19,18 +19,23 @@ color yellow = #F7E516;
 color black  = #000000;
 color white  = #FFFFFF;
 color brown  = #795040;
+color red = #FF0000;
 boolean wkey, akey, skey, dkey, spacekey, gun1, gun2, gun3, gun4, gun5, gun6, switched, immuned, haveW2, haveW4, haveW5, haveW6;
 ArrayList<GameObject> object;
 ArrayList<DarknessCell> darkness;
 Hero hero;
-AnimatedGIF gif;
+AnimatedGIF gif, manUp, manDown, manLeft, manRight;
 PImage map;
 color nroom, eroom, sroom, wroom;
-int GUN=1, BULLETS=2, MEDKIT=3;
+int GUN=1, AMMO=3, MEDKIT=2;
 void setup() {
   size(800, 800, FX2D);
-  gif = new AnimatedGIF(120, "frame_", "_delay-0.07s.png", 0, 0, width, height);
-  map=loadImage("map1.png");
+  gif = new AnimatedGIF(120, "Intro/frame_", "_delay-0.07s.png", 0, 0, width, height);
+  manUp = new AnimatedGIF(4, 10, "man/up/sprite_", ".png");
+  manDown = new AnimatedGIF(4,10, "man/down/sprite_", ".png");
+  manLeft = new AnimatedGIF(4,10, "man/left/sprite_", ".png");
+  manRight = new AnimatedGIF(4,10, "man/right/sprite_", ".png");
+  map=loadImage("map/map1.png");
   mode=intro;
   bkg = white;
   yellowButton  = new Button("Start", 400, 650, 600, 200, darkYellow, white);
@@ -125,7 +130,7 @@ void keyPressed() {
     gun6=false;
     switched=true;
   }
-  if (keyCode=='4' &&haveW4) {
+  if (keyCode=='4' && haveW4) {
     gun4=true; 
     gun2=false;
     gun3=false; 
@@ -134,7 +139,7 @@ void keyPressed() {
     gun6=false;
     switched=true;
   }
-  if (keyCode=='5' &&haveW5) {
+  if (keyCode=='5' && haveW5) {
     gun5=true; 
     gun2=false;
     gun3=false; 
@@ -143,7 +148,7 @@ void keyPressed() {
     gun6=false;
     switched=true;
   }
-  if (keyCode=='6' &&haveW6) {
+  if (keyCode=='6' && haveW6) {
     gun5=false; 
     gun2=false;
     gun3=false; 

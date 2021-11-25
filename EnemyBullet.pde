@@ -33,21 +33,12 @@ class EnemyBullet extends GameObject {
     }
    
       if (collidingWith(this)&&hero.immuned<=0) {
-        hero.hp--;
+        hero.hp-=int(vel.mag()*2.25);
         hero.immuned=150;
         hp--;
         for (int i=0; i<15; i++) {
           object.add(new BulletParticles(loc, white));
         }
       }
-      //if (withHero(this)&&hero.immuned<=0)
-      //if (dist(loc.x, loc.y, hero.loc.x, hero.loc.y)<=hero.size/2+size/2) {
-      //  hero.hp--;
-      //  hero.immuned=100;
-      //  hp--;
-      //  for (int i=0; i<15; i++) {
-      //    object.add(new BulletParticles(loc, white));
-      //  }
-      //}
   }
 }

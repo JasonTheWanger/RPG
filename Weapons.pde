@@ -8,9 +8,10 @@ class awp extends Weapon {
 class glock_18 extends Weapon {
 
   glock_18() {
-    super(30, 10);
+    super(30, 12.5);
   }
   void shoot() {
+        
     if (timer>=threshold) {
         PVector aimVector = new PVector(mouseX-hero.loc.x, mouseY-hero.loc.y);
         aimVector.rotate(random(PI/30-PI/10, PI*5/30-PI/10));
@@ -49,7 +50,7 @@ class m249 extends Weapon{
         PVector aimVector = new PVector(mouseX-hero.loc.x, mouseY-hero.loc.y);
         aimVector.rotate(random(PI/39.6-PI/13.2, PI*5/39.6-PI/13.2));
         aimVector.setMag(bulletSpeed);
-        object.add(new Bullet(aimVector, black, 8));
+        object.add(new Bullet(aimVector, black, 9));
         timer=0;
     }
   }

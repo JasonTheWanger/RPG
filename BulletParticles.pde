@@ -20,7 +20,7 @@ class BulletParticles extends GameObject {
     fill(fill, t);
     circle(loc.x, loc.y, size);
     println(loc);
-    if (loc.x>=width-40||loc.x<=40||loc.y>=height-40||loc.y<=40) {
+    if (loc.x>=width-35||loc.x<=35||loc.y>=height-35||loc.y<=35) {
       hp--;
     }
   }
