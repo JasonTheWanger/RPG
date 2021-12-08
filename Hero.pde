@@ -1,6 +1,7 @@
 class Hero extends GameObject {
   float speed;
   float bar;
+  int exp, maxHp;
   Weapon weapon, weapon1, weapon2, weapon3, weapon4, weapon5, weapon6;
   AnimatedGIF currentAction;
   Hero() {
@@ -16,27 +17,28 @@ class Hero extends GameObject {
     weapon5=new awp();
     weapon6=new m249();
     weapon=weapon1;
-    hp=100;
+    hp=maxHp=100;
     immuned=100;
     loc.x=250;
     loc.y=250;
     currentAction = manDown;
+    exp=0;
   }
 
   void show() {
     currentAction.show(loc.x, loc.y, size/1.5, size);
     noFill();
-    if (immuned>0){
-    stroke(0, 255, 0);
-    strokeWeight(2);
-    circle(loc.x+12.5, loc.y+20, size*1.5);
-  }
+    if (immuned>0) {
+      stroke(0, 255, 0);
+      strokeWeight(2);
+      circle(loc.x+12.5, loc.y+20, size*1.5);
+    }
     rectMode(CENTER);
     stroke(0);
     strokeWeight(2);
     rect(loc.x+12.5, loc.y-20, 35, 5);
     fill(red);
-    bar=map(hp, 0, 100, 0, 35);
+    bar=map(hp, 0, maxHp, 0, 35);
     rectMode(CORNER);
     noStroke();
     rect(loc.x-5, loc.y-22.5, bar, 4.8);
@@ -60,19 +62,18 @@ class Hero extends GameObject {
       vel.x=0;
     }
     if (vel.mag()>=speed) {
-      vel.setMag(speed);
+      vel.setMag(speed+speedLvl*0.2);
     }
     if (abs(vel.y)> abs(vel.x)) {
       if (vel.y>=0)
         currentAction=manDown;
-        else currentAction = manUp;
+      else currentAction = manUp;
+    } else {
+      if (vel.x>0)
+        currentAction=manRight;
+      else if (vel.x<0)
+        currentAction=manLeft;
     }
-      else {
-        if (vel.x>0)
-          currentAction=manRight;
-        else if(vel.x<0)
-          currentAction=manLeft;
-      }
     if (nroom!=#FFFFFF&& loc.y<=height*0.1&&loc.x>=width/2-50&&loc.x<=width/2+50) {
       roomy-=1;
       loc=new PVector(width/2, height*0.9-10);
@@ -106,7 +107,7 @@ class Hero extends GameObject {
       hero.speed=6.5;
     } else if (gun2&&switched) {
       weapon=weapon2;
-      hero.speed=4.5;
+      hero.speed=4.75;
     } else if (gun3&&switched) {
       weapon=weapon3;
       hero.speed=3.75;
@@ -143,8 +144,8 @@ class Hero extends GameObject {
             GB.hp--;
           } else if (GB.type==MEDKIT) {
             hp+=30;
-            if (hp>100)
-              hp=100;
+            if (hp>maxHp)
+              hp=maxHp;
             GB.hp--;
           }
           if (GB.hp<=0) {

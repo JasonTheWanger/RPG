@@ -35,8 +35,8 @@ class Button{
     } else {
       fill(highlight);
     }
-    textSize(w/4);
-    text(text, x, y*48/50);
+    textSize(w/4.5);
+    text(text, x, y);
 
     if (mouseReleased && mouseX > x-w/2 && mouseX < x+w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
       clicked  = true;

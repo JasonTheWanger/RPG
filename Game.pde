@@ -1,8 +1,8 @@
 void Game() {
-
   drawRoom();
   drawGameObject();
   drawMap();
+  println(hero.maxHp);
 }
 void drawRoom() {
   background(#DE7F02);
