@@ -2,7 +2,7 @@ void Game() {
   drawRoom();
   drawGameObject();
   drawMap();
-  println(hero.maxHp);
+  println(hero.vel.mag());
 }
 void drawRoom() {
   background(#DE7F02);

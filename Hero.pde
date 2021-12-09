@@ -130,20 +130,25 @@ class Hero extends GameObject {
             switch(rnd) {
             case 1:
               haveW2=true;
+              object.add(new Message("Obtained MP9", GB.loc.x, GB.loc.y));
               break;
             case 2:
               haveW4=true;
+              object.add(new Message("Obtained Sawed-Off", GB.loc.x, GB.loc.y));
               break;
             case 3:
               haveW5=true;
+              object.add(new Message("Obtained AWP", GB.loc.x, GB.loc.y));
               break;
             case 4:
               haveW6=true;
+              object.add(new Message("Obtained M249", GB.loc.x, GB.loc.y));
               break;
             }
             GB.hp--;
           } else if (GB.type==MEDKIT) {
             hp+=30;
+            object.add(new Message("Obtained MedKit", GB.loc.x, GB.loc.y));
             if (hp>maxHp)
               hp=maxHp;
             GB.hp--;
