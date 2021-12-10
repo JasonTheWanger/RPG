@@ -29,6 +29,7 @@ PImage map;
 color nroom, eroom, sroom, wroom;
 int GUN=1, AMMO=3, MEDKIT=2;
 int speedLvl, dmgLvl, hpLvl;
+lightScource nLight, sLight, wLight, eLight;
 void setup() {
   size(800, 800, FX2D);
   gif = new AnimatedGIF(120, "Intro/frame_", "_delay-0.07s.png", 0, 0, width, height);
